@@ -16,8 +16,8 @@ public class TestXML {
 			JAXBContext jaxbContext = JAXBContext.newInstance(RootElement.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			RootElement customer = (RootElement) jaxbUnmarshaller.unmarshal(file);
-			//System.out.println(customer.getData());
+			RootElement rootEl = (RootElement) jaxbUnmarshaller.unmarshal(file);
+			
 			JAXBContext jaxbContextData = JAXBContext.newInstance(Data.class);
 			Marshaller jaxbMarshaller = jaxbContextData.createMarshaller();
 
@@ -25,7 +25,7 @@ public class TestXML {
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 			StringWriter out=new StringWriter();
-			jaxbMarshaller.marshal(customer.getData(), out);
+			jaxbMarshaller.marshal(rootEl.getData(), out);
 			System.out.println(out);
 
 		  } catch (JAXBException e) {
