@@ -21,7 +21,7 @@ public class TestXML {
 			JAXBContext jaxbContextData = JAXBContext.newInstance(Data.class);
 			Marshaller jaxbMarshaller = jaxbContextData.createMarshaller();
 
-			// output pretty printed
+			
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 			StringWriter out=new StringWriter();
